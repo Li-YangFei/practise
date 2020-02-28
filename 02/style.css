@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.carousel {
+    max-width: 500px;
+    height: 300px;
+}
+
+.carousel .panels {
+    position: relative;
+    /* 2.由于下方 1 的脱标所以要设置高度 */
+    height: 100%;
+}
+
+.carousel .panels a {
+    /* 1.绝对定位脱离标准文档流 */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /* 决定上下层 */
+    z-index: 1;
+}
+
+.carousel .panels a:first-child {
+    /* 将第一张图调节到最上层 */
+    z-index: 10;
+}
+
+.carousel .panels img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.carousel .action {
+    display: flex;
+    font-size: 12px;
+    color: blueviolet;
+    margin-top: 8px;
+}
+
+.carousel .action .pre {
+    order: 1;
+    cursor: pointer;
+}
+
+.carousel .action .next {
+    order: 3;
+    cursor: pointer;
+}
+
+.carousel .dots {
+    order: 2;
+    flex: 1;
+    text-align: center;
+    /* border: 1px solid red; */
+}
+
+/* 
+display: flex;
+1. order 决定水平排列的先后，值越小越靠前
+2. flex 值为 1 表示撑满
+*/
+.carousel .dots>span {
+    display: inline-block;
+    width: 6px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: black;
+    cursor: pointer;
+}
+
+.carousel .dots>span.active {
+    width: 10px;
+    background-color: red;
+}
